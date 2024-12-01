@@ -1,0 +1,75 @@
+(defwindow window
+	:monitor 0
+	:geometry (geometry 	:y "2%"
+				:x "50%"
+				:width "100%"
+				:height "65px"
+				:anchor "top center"
+		 )
+	:stacking "fg"
+	:namespace "main bar"
+	:exclusive true
+	(main)
+)
+
+(defwidget main []
+	(box 	:class "main"
+		(clock)
+	)
+)
+
+(defwidget clock []
+	(eventbox	:onhover "eww update clock_reveal=false"
+			:onhoverlost "eww update clock_reveal=true"
+			(box 	:orientation "v"
+				:space-evenly false
+				:class "clock"
+				:valign "center"
+				(revealer	:reveal clock_reveal
+						:duration "400ms"
+						:transition "slidedown"
+						time
+				)
+				(revealer	:reveal {!clock_reveal}
+						:duration "400ms"
+						:transition "slideup"
+						date
+				)
+			)
+	)
+)
+
+
+(defwidget bundle []
+	(eventbox 	:onhover "eww update status_reveal=true"
+			:onhoverlost "eww update status_reveal=false"
+	(box	:class "status"
+		:orientation "h"
+		:halign "end"
+		:space-evenly false
+		(revealer	:reveal status_reveal
+				:duration "400ms"
+				:transition "slideright"
+				(box	(button "")
+					(button "")
+					(button "")
+				)
+		)
+				(box	:class "bundle"
+					:width 45
+					(circular-progress 	:value 60
+								:class "bar"
+               							:thickness 5
+					"100"
+					)
+				)
+		)
+	)
+)
+
+
+(defpoll time	:interval "1s"	"date '+%H:%M'")
+(defpoll date :interval "43200s" "date '+%a %d %b'")
+
+(defvar clock_reveal true)
+(defvar status_reveal false)

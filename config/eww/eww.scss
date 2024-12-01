@@ -1,0 +1,33 @@
+$black: #080D11;
+$white: #d9dbaf;
+$green: #40BA82;
+$yellow: #E3B806;
+$dark-green: #0b151b;
+
+* {
+  all: unset;
+  font-family: 'Office Code Pro';
+  font-weight: 900;
+}
+
+.main {
+  background-color: $black;
+  color: $yellow;
+  border-radius: 25px;
+  box-shadow:0 0 6px $dark-green;
+  margin: 10px 200px;
+}
+
+.clock {
+  font-size: 20px;
+}
+
+.bundle {
+}
+
+.bar {
+  font-size: 12px;
+  margin: 6px;
+  background: $dark-green;
+  color: $yellow;
+}
