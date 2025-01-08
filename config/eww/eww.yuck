@@ -13,8 +13,16 @@
 )
 
 (defwidget main []
-	(box 	:class "main"
-		(clock)
+	(centerbox	:orientation "h"
+			:class "main"
+		(box	:class "left"
+		)
+		(box	:class "center"
+			(clock)
+		)
+		(box	:class "right"
+			(bundle)
+		)
 	)
 )
 
