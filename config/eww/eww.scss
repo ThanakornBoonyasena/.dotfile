@@ -2,7 +2,7 @@ $black: #080D11;
 $white: #d9dbaf;
 $green: #40BA82;
 $yellow: #E3B806;
-$dark-green: #0b151b;
+$dark-green: #1a2933;
 
 * {
   all: unset;
@@ -31,12 +31,13 @@ $dark-green: #0b151b;
   font-size: 20px;
 }
 
-.bundle {
+.status {
+  background: $dark-green;
+  border-radius: 50;
+  margin: 8;
 }
 
-.bar {
+.status_bar {
+  color: $green;
   font-size: 12px;
-  margin: 6px;
-  background: $dark-green;
-  color: $yellow;
 }

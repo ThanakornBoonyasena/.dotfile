@@ -1,4 +1,4 @@
-(defwindow window
+defwindow window
 	:monitor 0
 	:geometry (geometry 	:y "2%"
 				:x "50%"
@@ -21,7 +21,7 @@
 			(clock)
 		)
 		(box	:class "right"
-			(bundle)
+			(status)
 		)
 	)
 )
@@ -47,37 +47,29 @@
 	)
 )
 
-
-(defwidget bundle []
-	(eventbox 	:onhover "eww update status_reveal=true"
-			:onhoverlost "eww update status_reveal=false"
-	(box	:class "status"
-		:orientation "h"
-		:halign "end"
-		:space-evenly false
-		(revealer	:reveal status_reveal
-				:duration "400ms"
-				:transition "slideright"
-				(box	(button "")
-					(button "")
-					(button "")
-				)
-		)
-				(box	:class "bundle"
-					:width 45
-					(circular-progress 	:value 60
-								:class "bar"
-               							:thickness 5
-					"100"
+(defwidget status []
+	(eventbox
+			(box	:orientation "h"
+				:class "status"
+				:halign "end"
+				:width 400
+				(eventbox	:onscroll "$HOME/Script/bash/vol.sh --{}"
+						(box	:class "status_bar"
+							(circular-progress	:value vol
+										:start-at 75
+               									:thickness 5
+										""
+							)
 					)
 				)
-		)
+			)
 	)
 )
 
 
-(defpoll time	:interval "1s"	"date '+%H:%M'")
-(defpoll date :interval "43200s" "date '+%a %d %b'")
+(defpoll time	:interval "1s" "date '+%H:%M'")
+(defpoll date	:interval "3600s" "date '+%a %d %b'")
+(defpoll vol :interval "0.01s" "$HOME/Script/bash/vol.sh")
 
 (defvar clock_reveal true)
 (defvar status_reveal false)
