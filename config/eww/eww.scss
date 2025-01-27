@@ -37,7 +37,19 @@ $dark-green: #1a2933;
   margin: 8;
 }
 
-.status_bar {
+.dot {
+  background: $yellow;
+  margin: 8;
+  border-radius: 25;
+}
+
+.vol-cont {
   color: $green;
-  font-size: 12px;
+  font-size: 10px;
+  padding: 4;
+}
+
+tooltip {
+    font-size: 16;
+    color: $black;
 }
