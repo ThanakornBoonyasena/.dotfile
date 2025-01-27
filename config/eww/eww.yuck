@@ -60,14 +60,14 @@
 
 (defwidget vol []
 	(eventbox	:onscroll "$HOME/Script/bash/vol.sh --{}"
+			:onclick "$HOME/Script/bash/vol.sh --mute"
 			(box	:class "vol-cont"
 				:halign "end"
 				:width 30
-				(circular-progress	:class "vol-bar"
-							:value vol
+				(circular-progress	:value vol
 							:start-at 75
                						:thickness 4
-							(button :class "dot")
+							(box :class {vol_dot_reveal ? "vol-act" : "vol-in"})
 				)
 			)
 	)
@@ -79,3 +79,4 @@
 
 (defvar clock_reveal true)
 (defvar status_reveal false)
+(defvar vol_dot_reveal true)

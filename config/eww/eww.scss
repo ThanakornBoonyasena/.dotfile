@@ -37,10 +37,14 @@ $dark-green: #1a2933;
   margin: 8;
 }
 
-.dot {
+.vol-act {
   background: $yellow;
   margin: 8;
   border-radius: 25;
+}
+
+.vol-in {
+  background: none;
 }
 
 .vol-cont {
